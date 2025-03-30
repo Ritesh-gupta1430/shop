@@ -64,7 +64,7 @@ const Header = () => {
             </div>
 
             {/* Wishlist */}
-            <Link href="/">
+            <Link href="/wishlist">
               <button className="p-1 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500 focus:outline-none">
                 <i className="bx bx-heart text-2xl"></i>
               </button>
