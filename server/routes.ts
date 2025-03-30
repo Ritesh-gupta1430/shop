@@ -89,7 +89,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertProductSchema.parse({
         ...req.body,
-        sellerId: req.user.id
+        sellerId: req.user?.id ?? (() => { throw new Error("User is not authenticated"); })()
       });
       
       const product = await storage.createProduct(validatedData);

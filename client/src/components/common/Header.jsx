@@ -5,6 +5,8 @@ import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/hooks/use-auth';
 import MobileMenu from './MobileMenu';
 import ThemeToggle from './ThemeToggle';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu';
+import { navigate } from 'wouter/use-browser-location';
 
 const Header = () => {
   const { isDarkMode, toggleTheme } = useTheme();
@@ -62,7 +64,7 @@ const Header = () => {
             </div>
 
             {/* Wishlist */}
-            <Link href="/wishlist">
+            <Link href="/">
               <button className="p-1 rounded-full text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-500 focus:outline-none">
                 <i className="bx bx-heart text-2xl"></i>
               </button>
@@ -90,7 +92,7 @@ const Header = () => {
             </button>
 
             {/* User menu */}
-            {user ? (
+            {/* {user ? (
               <div className="relative">
                 <button className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 focus:outline-none">
                   <img 
@@ -99,16 +101,72 @@ const Header = () => {
                     className="h-8 w-8 rounded-full"
                   />
                   <span className="ml-2 hidden md:inline">{user.fullName}</span>
-                </button>
+                </button> */}
                 {/* Dropdown would go here */}
+                {/* <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button className="p-1 rounded-full">
+          <i className="bx bx-chevron-down"></i>
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-48">
+        <DropdownMenuItem onClick={() => { navigate('/') }}>My Profile</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => {
+          logout();
+          setIsMobileMenuOpen(false);
+        }}>Sign Out</DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
               </div>
             ) : (
               <Link href="/auth">
                 <button className="px-4 py-1 rounded-lg border border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white transition-colors">
                   Sign In
                 </button>
-              </Link>
-            )}
+              </Link> */}
+            {/* )} */}
+            {/* User menu */}
+{user ? (
+  <div className="relative flex items-center">
+    <button className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-500 focus:outline-none">
+      <img 
+        src={`https://ui-avatars.com/api/?name=${user.fullName}&background=random`} 
+        alt="Profile picture" 
+        className="h-8 w-8 rounded-full"
+      />
+      <span className="ml-2">{user.fullName}</span>
+    </button>
+    {/* Dropdown would go here */}
+    <DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <button className="p-1 rounded-full">
+      <i className="bx bx-chevron-down"></i>
+    </button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-48">
+    <DropdownMenuItem onClick={() => navigate('/')}>
+      My Profile
+    </DropdownMenuItem>
+    <DropdownMenuItem
+      onClick={() => {
+        logout();
+        setIsMobileMenuOpen(false);
+      }}
+    >
+      Sign Out
+    </DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+
+
+  </div>
+) : (
+  <Link href="/auth">
+    <button className="px-4 py-1 rounded-lg border border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white transition-colors">
+      Sign In
+    </button>
+  </Link>
+)}
 
             {/* Mobile menu button */}
             <button 

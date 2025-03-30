@@ -32,7 +32,7 @@ const OfferCard = ({ offer }) => {
         <p className="opacity-90 mb-4">{description}</p>
         <Link href={`/shops/${shopId}`}>
           <motion.button 
-            className="bg-white text-primary-600 px-4 py-2 rounded font-medium hover:bg-gray-100 transition-colors"
+            className="bg-white text-primary-600 px-4 py-2 rounded font-medium hover:bg-gray-100 transition-colors text-black"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

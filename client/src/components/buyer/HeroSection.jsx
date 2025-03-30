@@ -20,7 +20,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
               <Link href="/map">
                 <motion.button 
-                  className="px-6 py-3 bg-white text-primary-600 rounded-lg shadow-md font-medium hover:bg-gray-100 transition-colors"
+                  className="px-6 py-3 bg-white text-primary-600 rounded-lg shadow-md font-medium hover:bg-gray-100 transition-colors text-black"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
